@@ -1,0 +1,493 @@
+/* styles.css - shared styles for the template site */
+
+/*
+  The body rule sets page-level defaults. font-family provides fallback
+  fonts, and margin/padding reset removes browser defaults so our layout
+  behaves consistently.
+*/
+body {
+    font-family: Arial, sans-serif; /* Sans-serif stack that works on most systems */
+    background-color: #f5f5f5; /* light gray background behind the content */
+    margin: 0; /* remove default page margin */
+    padding: 0; /* remove default page padding */
+}
+
+/* Header styles: background image with centered white text */
+header {
+    background-image: url('images/bkg1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 40px; /* doubled the depth */
+    min-height: 120px; /* ensure adequate height for the background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation: remove default bullets and spacing */
+nav ul {
+    list-style-type: none; /* remove bullets */
+    padding: 0; /* remove default padding */
+    max-width: 97%; /* match main content width */
+    width: 100%;
+    margin: 0 auto; /* center horizontally like main content */
+    padding: 15px 25px; /* match main content horizontal padding */
+    font-size: 1.1em; /* slightly larger text */
+    letter-spacing: 0.5px; /* space out the text */
+}
+
+/* Show navigation items horizontally */
+nav ul li {
+    display: inline; /* inline list items sit next to each other */
+    margin-right: 50px; /* even more spacing between links */
+}
+
+/* Navigation link styling */
+nav ul li a {
+    color: #000; /* black text */
+    text-decoration: none; /* remove underline */
+    font-weight: 500; /* slightly bolder text */
+    padding: 8px 12px; /* add padding for bubble effect */
+    border-radius: 6px; /* rounded corners for bubble */
+    transition: background-color 0.3s ease; /* smooth transition */
+}
+
+/* Navigation link hover effect */
+nav ul li a:hover {
+    color: #000; /* keep text color the same */
+    background-color: rgba(52, 152, 219, 0.1); /* faint blue bubble */
+    text-decoration: none; /* no underline */
+}
+
+/* Responsive navigation adjustments */
+@media (min-width: 1200px) {
+    nav ul {
+        max-width: 95%; /* match main content on large screens */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        max-width: 100%; /* full width on mobile */
+        margin: 0; /* remove centering on mobile */
+        padding: 10px 15px; /* reduced padding on mobile */
+        font-size: 1em; /* normal size on mobile */
+    }
+    
+    nav ul li {
+        margin-right: 25px; /* reduced spacing on mobile but still generous */
+    }
+}
+
+/* Main content container: center the content and add a white card */
+main {
+    max-width: 97%; /* use most of the screen width */
+    width: 100%; /* ensure full width is available */
+    margin: 0 auto; /* center horizontally */
+    padding: 25px; /* inner spacing */
+    background-color: #fff; /* white content area */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (min-width: 1200px) {
+    main {
+        max-width: 95%; /* slightly narrower on very large screens for readability */
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        max-width: 100%; /* full width on mobile devices */
+        margin: 0; /* remove centering on mobile */
+        padding: 15px; /* slightly less padding on mobile */
+    }
+}
+
+.project {
+    margin: 20px 0; /* utility class for spacing between sections */
+}
+
+/* Homepage specific styles */
+.intro-section {
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.intro-section p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.highlights-section {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.highlights-section h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.highlight-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.highlight-item h4 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.highlight-item p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.cta-section {
+    margin: 40px 0;
+    text-align: center;
+    padding: 30px;
+    background-color: #e8f4f8;
+    border-radius: 8px;
+}
+
+.cta-section h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.cta-section p {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+}
+
+/* About page styles */
+.about-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 30px 0 50px 0;
+}
+
+.about-image-section {
+    flex: 0 0 300px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-content-section {
+    flex: 1;
+}
+
+.about-content-section h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.8em;
+}
+
+.about-content-section p {
+    line-height: 1.6;
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+
+.about-details {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.interests-section h3,
+.goals-section h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.interest-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.interest-item h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.interest-item p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.goals-section {
+    background-color: #e8f4f8;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.goal-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goal-content p {
+    line-height: 1.6;
+    font-size: 1.3em;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+    width: 100%;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 768px) {
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .about-image-section {
+        flex: none;
+    }
+    
+    .profile-image {
+        max-width: 250px;
+    }
+    
+    .about-details {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .highlights-section,
+    .cta-section {
+        padding: 20px;
+    }
+}
+
+/* Projects page styles */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin: 30px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-item {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 3px solid #000;
+}
+
+.project-item h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+.project-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1.05em;
+}
+
+.project-pdf-container {
+    text-align: center;
+}
+
+.project-pdf {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.pdf-note {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+.pdf-note a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.pdf-note a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for projects */
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        max-width: 100%;
+        margin: 20px 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 900px;
+        margin: 30px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        padding: 20px;
+    }
+    
+    .project-pdf {
+        height: 400px;
+    }
+}
+
+/* Thank you page styles */
+.thank-you-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.thank-you-content h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.thank-you-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.thank-you-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.thank-you-actions .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.thank-you-actions .cta-button:hover {
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive adjustments for thank you page */
+@media (max-width: 768px) {
+    .thank-you-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .thank-you-content {
+        padding: 20px 10px;
+    }
+}
+
+/*
+  Notes for students:
+  - Prefer CSS for visual styling instead of inline styles in HTML.
+  - Use semantic HTML elements (header, nav, main, footer) to improve
+    accessibility and search engine understanding.
+  - Keep styles in a .css file for reuse across pages.
+*/

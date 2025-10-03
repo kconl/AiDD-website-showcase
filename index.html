@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    The <!DOCTYPE html> declaration tells the browser this document uses HTML5.
+    It's not an HTML tag itself, but a required declaration that enables modern
+    browser rendering modes.
+-->
+<html lang="en">
+<!--
+    The <html> element is the root of the HTML document. The optional `lang`
+    attribute helps accessibility tools (screen readers) and search engines.
+-->
+<head>
+        <!--
+            The <head> contains meta information about the page that is not shown
+            directly in the main browser window: the page <title>, links to styles,
+            scripts, and metadata.
+        -->
+        <title>Homepage</title>
+        <!--
+            <title> defines the text shown in the browser tab and used by search
+            engines. Keep it short and descriptive.
+        -->
+        <!-- Link to an external CSS file that styles the page. href is the path
+                 to the stylesheet. Browsers will fetch and apply these rules. -->
+        <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+        <!--
+            The <body> contains the visible content of the page. Everything a
+            visitor sees should be inside <body>.
+        -->
+        <header>
+                <!--
+                    <header> typically contains introductory content or navigation
+                    aids such as a logo or the site title. Use semantic elements like
+                    <header> to help structure the document for accessibility.
+                -->
+                <h1>Keegan Conley</h1>
+                <!-- <h1> is the top-level heading. There should typically be one per
+                         page (the main topic). Headings are important for document outline
+                         and accessibility. -->
+        </header>
+        <nav>
+                <!--
+                    <nav> is a semantic container for navigation links. Screen readers
+                    and search engines can identify it and present it appropriately.
+                -->
+                <ul>
+                        <!-- An unordered list (<ul>) is commonly used for menus. Each
+                                 list item (<li>) contains a link (<a>) to another page. -->
+                        <li><a href="index.html">Homepage</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact Form</a></li>
+                </ul>
+        </nav>
+        <main>
+                <!--
+                    <main> should contain the primary content for this document. There
+                    should only be one <main> on a page.
+                -->
+                <!-- Inline styles like the one below (style="color:blue;") work, but
+                         are usually avoided in production in favor of CSS files. This is an
+                         example to show how inline styles are applied directly to an element. -->
+                <h2>Welcome to My Professional Journey</h2>
+                
+                <div class="intro-section">
+                    <p>I recently earned a B.S. in Supply Chain Management and Information Systems from the Kelley School of Business at Indiana University, where I developed a strong skillset in areas such as operations strategy, process optimization, data analytics, and digital design and transformation.</p>
+
+                    <p>Through previous corporate internships and class projects, I've enhanced my understanding of the ways organizations succeed and struggle in their efforts to improve existing processes and gain a competitive edge. I have long held a professional interest in opportunities that allow me to create actionable change through incremental improvements and a principled problem-solving approach.</p>
+
+                    <p>In the MSIS program at Kelley, I hope to deepen both the breadth and depth of my technical expertise, combining my existing knowledge of operations and technology to explore ways that organizations can make the best use of their limited resources in a dynamic and ever-changing world.</p>
+                </div>
+
+                <div class="highlights-section">
+                    <h3>Professional Highlights</h3>
+                    <div class="highlight-grid">
+                        <div class="highlight-item">
+                            <h4>🎓 Education</h4>
+                            <p>B.S. Supply Chain Management & Information Systems<br>Kelley School of Business, Indiana University</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>💼 Experience</h4>
+                            <p>Corporate internships and class projects focused on process optimization and organizational improvement</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>🎯 Current Focus</h4>
+                            <p>MSIS program to deepen technical expertise and explore resource optimization strategies</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h4>🔧 Skills</h4>
+                            <p>Operations strategy, process optimization, data analytics, digital design & transformation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always interested in discussing opportunities in operations, technology, and process improvement. Feel free to explore my background and reach out if you'd like to connect.</p>
+                    <div class="cta-buttons">
+                        <a href="about.html" class="cta-button">Learn More About Me</a>
+                        <a href="contact.html" class="cta-button">Get In Touch</a>
+                    </div>
+                </div>
+        </main>
+</body>
+</html>
