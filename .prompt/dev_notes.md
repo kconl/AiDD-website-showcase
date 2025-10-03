@@ -30,7 +30,7 @@ The process analysis one can be called "Operational Analysis of a Local Business
 
 The mind maps one can be called "Idea Mapping and Sustainable Energy"
 
-The ITS-CA2 one can be called "Case Analysis of  Kroger and Generative AI""
+The ITS-CA2 one can be called "Case Analysis of Kroger and Generative AI""
 
 AI Output:
 
@@ -67,3 +67,29 @@ Ensure form submission works and redirects to thankyou.html
 Updated the contact page with a contact info section and a cleaner form."
 
 Notes: Like in the above prompt, the AI did a reasonably good job. At this point, I notice it tends to struggle to properly understand spacing. I had that same problem working with Cursor this last summer as well. Getting spacing right in HTML/CSS is inherently finicky. That said, I subsequently adjusted the layout of the page, and I've learned over time the importance of structuring your styling before getting into the finer details, because if you don't, it can take a very long time to get all your content aligned properly.
+
+
+--
+Prompt 4:
+
+(In Ask mode) "Now, can you do a general evaluation of the codebase to see how the webpages would be viewed across different types of devices? Obviously I want to make sure that content is represented in a visually intuitive way regardless of laptop vs. tablet vs. phone viewership."
+
+AI Output (just the summary part):
+
+"📊 Overall assessment
+Score: 8.5/10
+✅ Good breakpoint coverage
+✅ Logical layout changes by device
+✅ Consistent behavior across pages
+⚠️ Missing viewport meta tag
+⚠️ Touch targets could be larger
+⚠️ No fluid typography
+The site is responsive and usable across devices. The main gaps are the viewport meta tag and touch target sizing."
+
+Notes: After this, I had the AI make some adjustments based on what it flagged. I figured it would give a better result if I had it conduct a holistic analysis and then try to make adjustments, rather than asking it to do so in Agent mode outright. It struggled for a bit to find the actual root cause because it would latch onto the first probable thing it could find. But after asking it to examine ALL relevant code, it correctly identified and corrected the spacing errors.
+
+
+--
+Reflection: AI was a significant time saver for this project. I did not have to manually write a large amount of code, although I learned HTML/CSS fundamentals in S310 which helped when I did need to. Cursor is particularly capable for this type of design. Although we were given a wireframe to build out this assignment, the AI did a good job of handling the minutiae involved in writing syntax. For example, it knows how to easily embed a pdf, whereas I don't have the experience to know something like that off the top of my head, and it may take me time to figure out how.
+
+As I've said before, the AI mainly made mistakes with spacing. Sometimes, the styling choice would be poor, it would misalign content within a certain subsection or visual "box", or it generally would fail to optimize to screen sizes. These can be corrected in part by using ask mode in the appropriate way, in part through effective prompt engineering, and in part through manual adjustments to structure. That is where the manual component of coding came in -- fixing small things the AI may overcomplicate, and helping to establish the baseline structure for it to act on.

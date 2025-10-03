@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Page 5</title>
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Link to shared stylesheet -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!--
@@ -165,6 +166,24 @@
             transform: translateY(0);
         }
         
+        /* Error message styling */
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 5px;
+            min-height: 20px;
+        }
+        
+        .form-group input.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+        
+        .form-group input.valid {
+            border-color: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .contact-links {
@@ -228,31 +247,36 @@
             <h2>Send Me a Message</h2>
             <p>Or fill out the form below and I'll get back to you as soon as possible.</p>
             
-            <form action="thankyou.html" method="get" class="clean-form">
+            <form action="thankyou.html" method="get" class="clean-form" novalidate>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="first-name">First Name *</label>
                         <input type="text" id="first-name" name="first-name" required>
+                        <div class="error-message" id="first-name-error"></div>
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name *</label>
                         <input type="text" id="last-name" name="last-name" required>
+                        <div class="error-message" id="last-name-error"></div>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email Address *</label>
                     <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+                    <div class="error-message" id="email-error"></div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="password">Password *</label>
                         <input type="password" id="password" name="password" required minlength="8">
+                        <div class="error-message" id="password-error"></div>
                     </div>
                     <div class="form-group">
                         <label for="confirm-password">Confirm Password *</label>
                         <input type="password" id="confirm-password" name="confirm-password" required>
+                        <div class="error-message" id="confirm-password-error"></div>
                     </div>
                 </div>
                 
@@ -262,5 +286,125 @@
             </form>
         </div>
     </main>
+    
+    <script>
+        // Form validation script
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.clean-form');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+            const email = document.getElementById('email');
+            const firstName = document.getElementById('first-name');
+            const lastName = document.getElementById('last-name');
+            
+            // Function to show error message
+            function showError(inputId, message) {
+                const errorElement = document.getElementById(inputId + '-error');
+                const input = document.getElementById(inputId);
+                errorElement.textContent = message;
+                input.classList.add('error');
+                input.classList.remove('valid');
+            }
+            
+            // Function to clear error message
+            function clearError(inputId) {
+                const errorElement = document.getElementById(inputId + '-error');
+                const input = document.getElementById(inputId);
+                errorElement.textContent = '';
+                input.classList.remove('error');
+                input.classList.add('valid');
+            }
+            
+            // Function to validate email format
+            function validateEmail(email) {
+                const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                return emailPattern.test(email);
+            }
+            
+            // Function to validate password match
+            function validatePasswordMatch() {
+                if (confirmPassword.value && password.value !== confirmPassword.value) {
+                    showError('confirm-password', 'Passwords do not match');
+                    return false;
+                } else if (confirmPassword.value) {
+                    clearError('confirm-password');
+                    return true;
+                }
+                return true;
+            }
+            
+            // Real-time validation for password match
+            confirmPassword.addEventListener('input', validatePasswordMatch);
+            password.addEventListener('input', function() {
+                if (confirmPassword.value) {
+                    validatePasswordMatch();
+                }
+            });
+            
+            // Real-time validation for email
+            email.addEventListener('input', function() {
+                if (email.value && !validateEmail(email.value)) {
+                    showError('email', 'Please enter a valid email address');
+                } else if (email.value) {
+                    clearError('email');
+                }
+            });
+            
+            // Real-time validation for required fields
+            [firstName, lastName, password].forEach(input => {
+                input.addEventListener('input', function() {
+                    if (input.value.trim()) {
+                        clearError(input.id);
+                    } else {
+                        showError(input.id, 'This field is required');
+                    }
+                });
+            });
+            
+            // Form submission validation
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+                
+                // Validate required fields
+                if (!firstName.value.trim()) {
+                    showError('first-name', 'First name is required');
+                    isValid = false;
+                }
+                
+                if (!lastName.value.trim()) {
+                    showError('last-name', 'Last name is required');
+                    isValid = false;
+                }
+                
+                if (!email.value.trim()) {
+                    showError('email', 'Email address is required');
+                    isValid = false;
+                } else if (!validateEmail(email.value)) {
+                    showError('email', 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                if (!password.value) {
+                    showError('password', 'Password is required');
+                    isValid = false;
+                } else if (password.value.length < 8) {
+                    showError('password', 'Password must be at least 8 characters long');
+                    isValid = false;
+                }
+                
+                if (!confirmPassword.value) {
+                    showError('confirm-password', 'Please confirm your password');
+                    isValid = false;
+                } else if (password.value !== confirmPassword.value) {
+                    showError('confirm-password', 'Passwords do not match');
+                    isValid = false;
+                }
+                
+                if (!isValid) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
