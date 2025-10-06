@@ -371,6 +371,54 @@ main {
 }
 
 /* Projects page styles */
+.github-section {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #000;
+}
+
+.github-section h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.github-section p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.github-link-container {
+    text-align: left;
+}
+
+.github-link-button {
+    display: inline-block;
+    background-color: #24292e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    border: 2px solid #24292e;
+}
+
+.github-link-button:hover {
+    background-color: #0366d6;
+    border-color: #0366d6;
+    color: white;
+    text-decoration: none;
+}
+
+.github-icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -532,6 +580,267 @@ main {
     
     .thank-you-content p {
         font-size: 1em;
+    }
+}
+
+/* Resume page styles */
+.resume-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 15px;
+    color: #333;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 40px auto 25px auto;
+    color: #2c3e50;
+    font-weight: bold;
+    letter-spacing: 1px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 35px;
+    padding: 20px 0;
+    border-bottom: 2px solid #e8e8e8;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 400;
+}
+
+.resume-section {
+    margin-bottom: 35px;
+    padding: 0 20px;
+}
+
+.resume-section h3 {
+    color: #2c3e50;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.resume-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #3498db;
+}
+
+.education-entry,
+.experience-entry,
+.leadership-entry,
+.project-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.education-entry:last-child,
+.experience-entry:last-child,
+.leadership-entry:last-child,
+.project-entry:last-child {
+    border-bottom: none;
+}
+
+.resume-content .project-item {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    border: none;
+}
+
+.education-left,
+.experience-left,
+.leadership-left,
+.project-left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.education-right,
+.experience-right,
+.leadership-right,
+.project-right {
+    text-align: right;
+    min-width: 140px;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.education-right p,
+.experience-right p,
+.leadership-right p,
+.project-right p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #666;
+    font-weight: 500;
+}
+
+.education-left p,
+.experience-left p,
+.leadership-left p,
+.project-left p {
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+}
+
+.education-left strong,
+.experience-left strong,
+.leadership-left strong,
+.project-left strong {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05em;
+}
+
+.education-left em,
+.experience-left em,
+.leadership-left em,
+.project-left em {
+    font-style: italic;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.education-bullets,
+.resume-section ul {
+    margin: 15px 0 0 0;
+    padding-left: 25px;
+}
+
+.resume-section ul li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: #444;
+    position: relative;
+}
+
+.resume-section ul li::marker {
+    color: #3498db;
+}
+
+.technical-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin: 0;
+}
+
+.technical-list li {
+    margin-bottom: 8px;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    border-left: none;
+    font-weight: normal;
+}
+
+.interests-text {
+    margin: 0;
+    color: #555;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+}
+
+.resume-download {
+    text-align: center;
+    margin-top: 50px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+    border-radius: 12px;
+    border: 1px solid #d0e7f7;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.download-link:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Responsive adjustments for resume */
+@media (max-width: 768px) {
+    .resume-content {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+    
+    .resume-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .education-entry,
+    .experience-entry,
+    .leadership-entry,
+    .project-entry {
+        flex-direction: column;
+        padding: 12px 0;
+    }
+    
+    .education-right,
+    .experience-right,
+    .leadership-right,
+    .project-right {
+        text-align: left;
+        margin-left: 0;
+        margin-top: 8px;
+        min-width: auto;
+    }
+    
+    .contact-info {
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+    
+    .resume-section {
+        margin-bottom: 25px;
+        padding: 0 10px;
+    }
+    
+    .technical-list {
+        grid-template-columns: 1fr;
     }
 }
 
